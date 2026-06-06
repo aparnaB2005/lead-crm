@@ -1,0 +1,189 @@
+/* ── Shell ── */
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Topbar ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 var(--border), var(--sh-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 56px;
+  animation: slideDown .25s ease;
+}
+
+.topLeft {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brandIcon {
+  width: 32px; height: 32px;
+  background: var(--brand);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37,99,235,.35);
+}
+
+.brandName {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -.3px;
+}
+
+.brandTag {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--brand-light);
+  color: var(--brand);
+  border: 1px solid var(--brand-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  letter-spacing: .04em;
+}
+
+/* ── Desktop Nav ── */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all .13s ease;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.navActive {
+  background: var(--brand-light);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* ── Top Right ── */
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbarMeta { display: flex; align-items: center; gap: 8px; }
+
+.orgLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 4px 10px;
+}
+
+.avatar {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--brand) 0%, #7C3AED 100%);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+
+.burger { display: none; }
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+/* ── Mobile Drawer ── */
+.backdrop {
+  position: fixed; inset: 0;
+  background: rgba(13,27,46,.35);
+  backdrop-filter: blur(2px);
+  z-index: 98;
+}
+
+.drawer {
+  position: fixed;
+  top: 56px; left: 0;
+  width: 240px; height: calc(100vh - 56px);
+  background: #fff;
+  border-right: 1px solid var(--border);
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: transform .22s ease;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--sh-lg);
+}
+
+.drawerOpen { transform: translateX(0); }
+
+.drawerBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.drawerNav { display: flex; flex-direction: column; gap: 2px; }
+
+.drawerLink {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  font-size: 14px; font-weight: 500;
+  color: var(--text-secondary);
+  transition: all .13s ease;
+  text-decoration: none;
+}
+
+.drawerLink:hover { background: var(--bg-hover); color: var(--text-primary); }
+.drawerActive { background: var(--brand-light); color: var(--brand); font-weight: 600; }
+
+@media (max-width: 768px) {
+  .topbar { padding: 0 16px; }
+  .desktopNav { display: none; }
+  .burger { display: flex; }
+  .orgLabel { display: none; }
+}
